@@ -1,0 +1,25 @@
+{
+  "name": "zerolang",
+  "displayName": "zerolang",
+  "description": "zerolang extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "zerolang",
+      "aliases": ["zerolang", "zerolang"],
+      "extensions": [".zl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "zerolang",
+      "scopeName": "source.zl",
+      "path": "./syntaxes/zerolang.tmLanguage.json"
+    }]
+  }
+}
