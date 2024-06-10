@@ -1,0 +1,6 @@
+// comment
+if ("oi" == "oi\"ola") {
+    while (true) {
+        return 2;
+    }
+}
