@@ -8,6 +8,11 @@ if ($outFolders.Count -eq 0) {
     mkdir "out/extension"
 }
 
+$outFolders = ls "out/extension" | ? { $_.Name -eq "syntaxes" } | measure
+if ($outFolders.Count -eq 0) {
+    mkdir "out/extension/syntaxes"
+}
+
 $contentTypes = ls out | ? { $_.Name -eq "[Content_Types].xml" } | measure
 if ($contentTypes.Count -eq 0) {
     ni "out/[Content_Types].xml" -Value "<?xml version=""1.0"" encoding=""utf-8""?>
@@ -64,6 +69,8 @@ cp src/CHANGELOG.md out/extension/CHANGELOG.md
 cp src/README.md out/extension/README.md
 cp src/extension.js out/extension/extension.js
 cp src/package.json out/extension/package.json
+cp src/language-configuration.json out/extension/language-configuration.json
+cp src/syntaxes/zerolang.tmLanguage.json out/extension/syntaxes/zerolang.tmLanguage.json
 
 if ((ls | ? {$_.name -eq "$($name).zip"} | measure).Count -ne 0) {
     del "$($name).zip"
